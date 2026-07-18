@@ -1,0 +1,82 @@
+{
+  "greeting": {
+    "ml": "നമസ്കാരം! യാത്രാ സഹായിയിലേക്ക് സ്വാഗതം. നിങ്ങൾക്ക് എങ്ങോട്ട് പോകണം?",
+    "en": "Namaskaram! Welcome to Yathra Sahayi. Where would you like to go?"
+  },
+  "helpline_opening": {
+    "ml": "കൊച്ചി മെട്രോ ഹെൽപ്‌ലൈനിലേക്ക് വിളിച്ചതിന് നന്ദി. ഞാൻ യാത്ര സഹായി, നിങ്ങളുടെ യാത്രാ വോയ്സ് അസിസ്റ്റന്റാണ്. മെട്രോ റൂട്ട്, സമയം, വാട്ടർ മെട്രോ കണക്ഷൻ, ഫീഡർ ബസ്, ഓട്ടോ ചാർജ് എന്നിവയിൽ സഹായിക്കാം. ഇന്ന് എങ്ങനെ സഹായിക്കാം?",
+    "en": "Thank you for calling Kochi Metro Helpline. This is Yathra Sahayi, your voice travel assistant. I can help with metro routes, timings, Water Metro connections, feeder buses, and auto fares. How can I help you today?"
+  },
+  "ask_destination": {
+    "ml": "തീർച്ചയായും സഹായിക്കാം. നിങ്ങളുടെ ലക്ഷ്യസ്ഥാനം എവിടെയാണ്?",
+    "en": "Sure, I can help with that. What is your destination?"
+  },
+  "ask_origin": {
+    "ml": "തീർച്ചയായും. നിങ്ങൾ ഇപ്പോൾ എവിടെയാണ്?",
+    "en": "Of course. Where are you right now?"
+  },
+  "ask_origin_and_destination_for_fare": {
+    "ml": "ഓട്ടോ ചാർജ് കണക്കാക്കാൻ പുറപ്പെടുന്ന സ്ഥലംയും ലക്ഷ്യസ്ഥാനവും ദയവായി പറയാമോ?",
+    "en": "Please tell me both the starting point and destination, and I will estimate the auto fare."
+  },
+  "route_found": {
+    "ml": "{origin} നിന്ന് {destination} ലേക്ക് ഏറ്റവും നല്ല വഴി ഇതാണ്:",
+    "en": "Here's the best route from {origin} to {destination}:"
+  },
+  "route_summary_prefix": {
+    "ml": "തീർച്ചയായും, ഏറ്റവും നല്ല വഴി ഞാൻ പറയാം.",
+    "en": "Sure, I can guide you. Here is the best route."
+  },
+  "metro_segment": {
+    "ml": "{from} സ്റ്റേഷനിൽ നിന്ന് മെട്രോയിൽ കയറുക, {to} സ്റ്റേഷനിൽ ഇറങ്ങുക. സമയം: {duration} മിനിറ്റ്. ടിക്കറ്റ്: {fare} രൂപ.",
+    "en": "Board the Metro at {from} station and alight at {to} station. Duration: {duration} minutes. Fare: ₹{fare}."
+  },
+  "auto_fare": {
+    "ml": "തീർച്ചയായും. ഏകദേശം {distance} കിലോമീറ്ററിന് ഓട്ടോ ചാർജ് {fare} രൂപയാകും. {nightNote} ഇത് കേരള MVD നിരക്കിനെ അടിസ്ഥാനമാക്കിയുള്ള കണക്കാണ്.",
+    "en": "Sure. For about {distance} km, the estimated auto fare is ₹{fare}. {nightNote} This is based on Kerala MVD fare rules."
+  },
+  "night_surcharge_note": {
+    "ml": "രാത്രി സർചാർജ് (50%) ഉൾപ്പെടെ.",
+    "en": "Including 50% night surcharge."
+  },
+  "no_route": {
+    "ml": "ക്ഷമിക്കണം, ആ റൂട്ട് കണ്ടെത്താൻ കഴിഞ്ഞില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+    "en": "Sorry, I couldn't find that route. Please try again."
+  },
+  "distance_not_available": {
+    "ml": "ക്ഷമിക്കണം, ഈ രണ്ടു സ്ഥലങ്ങൾക്കിടയിലെ ദൂരം ഇപ്പോൾ ലഭ്യമല്ല.",
+    "en": "Sorry, I don't have distance data for those two places yet."
+  },
+  "clarification": {
+    "ml": "ക്ഷമിക്കണം, ശരിയായി മനസ്സിലായില്ല. ദയവായി പുറപ്പെടുന്ന സ്ഥലവും പോകേണ്ട സ്ഥലവും വീണ്ടും പറയാമോ?",
+    "en": "Sorry, I did not catch that clearly. Could you please repeat your starting point and destination?"
+  },
+  "language_switch_confirm": {
+    "ml": "ഞാൻ ഇനി മലയാളത്തിൽ സംസാരിക്കാം.",
+    "en": "I'll speak in English now."
+  },
+  "schedule_info": {
+    "ml": "{station} മെട്രോ {first} മുതൽ {last} വരെ. Peak സമയത്ത് ഓരോ {peak} മിനിറ്റിലും.",
+    "en": "{station} metro runs from {first} to {last}. Peak frequency is every {peak} minutes."
+  },
+  "schedule_next": {
+    "ml": "{station} സ്റ്റേഷനിൽ അടുത്ത മെട്രോ ഏകദേശം {frequency} മിനിറ്റിൽ ഉണ്ടാകും. അവസാന മെട്രോ {last} ന് ആണ്.",
+    "en": "Next metro from {station} is in approximately {frequency} minutes. Last metro is at {last}."
+  },
+  "schedule_closed": {
+    "ml": "കൊച്ചി മെട്രോ രാത്രി 10 മണിക്ക് ശേഷം പ്രവർത്തിക്കുന്നില്ല. ആദ്യ ട്രെയിൻ രാവിലെ {first} ന് ആണ്.",
+    "en": "Kochi Metro does not operate after 10 PM. First train is at {first}."
+  },
+  "error_generic": {
+    "ml": "ക്ഷമിക്കണം, എന്തോ പിഴവ് സംഭവിച്ചു. വീണ്ടും ശ്രമിക്കുക.",
+    "en": "Sorry, something went wrong. Please try again."
+  },
+  "sarvam_error": {
+    "ml": "ക്ഷമിക്കണം, ശബ്ദ സേവനം താൽക്കാലികമായി ലഭ്യമല്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+    "en": "Sorry, the voice service is temporarily unavailable. Please try again."
+  },
+  "placeholder_voice": {
+    "ml": "വോയ്സ് പൈപ്പ്ലൈൻ സജീവമാണ്. Sarvam API key ചേർത്താൽ live STT/TTS ലഭ്യമാകും.",
+    "en": "Voice pipeline is active. Add SARVAM_API_KEY for live STT/TTS."
+  }
+}

@@ -1,0 +1,1220 @@
+{
+  "meta": {
+    "project": "Yathra Sahayi",
+    "step": 1,
+    "description": "Semantic transit cache for Kochi integrated transport (Metro, Water Metro, feeder buses, auto fares)",
+    "version": "1.0.0",
+    "last_updated": "2026-07-18",
+    "locale": "en-IN",
+    "currency": "INR",
+    "coordinate_bounds": {
+      "latitude_min": 9.9,
+      "latitude_max": 10.12,
+      "longitude_min": 76.2,
+      "longitude_max": 76.4,
+      "note": "Aluva (northern terminal) is at 10.1098°N — slightly above the 10.1°N guideline in buildprompt.md but verified via KMRL/Wikipedia."
+    },
+    "sources": [
+      "Kochi Metro Rail Limited (KMRL) — kochimetro.org, open-data GTFS",
+      "Wikipedia — List of Kochi Metro stations (GPS coordinates)",
+      "Kochi Water Metro — watermetro.co.in",
+      "Kerala MVD — GO(P) No. 42/2023/Trans (auto-rickshaw tariff)"
+    ],
+    "notes": {
+      "station_codes": "Conventional 3-letter codes for agent lookup; KMRL does not publish official station codes for ticketing.",
+      "train_times": "First/last train times are approximate staggered schedules; system operating window is 06:00–22:00."
+    }
+  },
+  "metro": {
+    "line_id": "blue_line",
+    "line_name_en": "Blue Line",
+    "line_name_ml": "ബ്ലൂ ലൈൻ",
+    "route_en": "Aluva to Tripunithura",
+    "route_ml": "ആലുവ മുതൽ തൃപ്പൂണിത്തുറ വരെ",
+    "total_stations": 25,
+    "total_length_km": 27.96,
+    "operating_hours": {
+      "open": "06:00",
+      "close": "22:00",
+      "timezone": "Asia/Kolkata"
+    },
+    "frequency": {
+      "peak_minutes": 5,
+      "off_peak_minutes": 10,
+      "peak_hours": "07:00-10:00,17:00-20:00"
+    },
+    "fare_slabs_inr": [
+      {
+        "min_km": 0,
+        "max_km": 2,
+        "fare": 10
+      },
+      {
+        "min_km": 2,
+        "max_km": 4,
+        "fare": 20
+      },
+      {
+        "min_km": 4,
+        "max_km": 6,
+        "fare": 30
+      },
+      {
+        "min_km": 6,
+        "max_km": 9,
+        "fare": 40
+      },
+      {
+        "min_km": 9,
+        "max_km": 12,
+        "fare": 50
+      },
+      {
+        "min_km": 12,
+        "max_km": 18,
+        "fare": 60
+      },
+      {
+        "min_km": 18,
+        "max_km": null,
+        "fare": 65
+      }
+    ],
+    "stations": [
+      {
+        "order": 1,
+        "name_en": "Aluva",
+        "name_ml": "ആലുവ",
+        "code": "ALV",
+        "chainage_km": 0.098,
+        "coordinates": {
+          "latitude": 10.1098,
+          "longitude": 76.3496
+        },
+        "landmarks": [
+          "Aluva Railway Station",
+          "Aluva Mahadeva Temple",
+          "Periyar River ghats"
+        ],
+        "feeder_buses": [
+          "KSRTC Angamaly",
+          "KSRTC Perumbavoor",
+          "KMRL Feeder F1"
+        ],
+        "first_train": "06:00",
+        "last_train": "22:00",
+        "rail_interchange": null
+      },
+      {
+        "order": 2,
+        "name_en": "Pulinchodu",
+        "name_ml": "പുലിഞ്ചോട്",
+        "code": "PLN",
+        "chainage_km": 1.827,
+        "coordinates": {
+          "latitude": 10.09512,
+          "longitude": 76.346661
+        },
+        "landmarks": [
+          "Pulinchodu Junction",
+          "NH544 corridor",
+          "Residential belt of Aluva"
+        ],
+        "feeder_buses": [
+          "KSRTC Aluva Town"
+        ],
+        "first_train": "06:03",
+        "last_train": "21:57",
+        "rail_interchange": null
+      },
+      {
+        "order": 3,
+        "name_en": "Companypady",
+        "name_ml": "കമ്പനിപ്പടി",
+        "code": "CMP",
+        "chainage_km": 2.796,
+        "coordinates": {
+          "latitude": 10.087293,
+          "longitude": 76.34284
+        },
+        "landmarks": [
+          "Companypady market",
+          "Industrial estate access",
+          "Metro viaduct curve"
+        ],
+        "feeder_buses": [
+          "KSRTC Aluva",
+          "Private buses to Kalamassery"
+        ],
+        "first_train": "06:05",
+        "last_train": "21:55",
+        "rail_interchange": null
+      },
+      {
+        "order": 4,
+        "name_en": "Ambattukavu",
+        "name_ml": "അമ്പാട്ടുകാവ്",
+        "code": "ABK",
+        "chainage_km": 3.779,
+        "coordinates": {
+          "latitude": 10.079372,
+          "longitude": 76.339004
+        },
+        "landmarks": [
+          "Ambattukavu temple area",
+          "NH544 service road",
+          "Metro feeder parking"
+        ],
+        "feeder_buses": [
+          "KSRTC Kalamassery",
+          "Private minibuses"
+        ],
+        "first_train": "06:07",
+        "last_train": "21:53",
+        "rail_interchange": null
+      },
+      {
+        "order": 5,
+        "name_en": "Muttom",
+        "name_ml": "മുട്ടം",
+        "code": "MTM",
+        "chainage_km": 4.716,
+        "coordinates": {
+          "latitude": 10.0727,
+          "longitude": 76.3337
+        },
+        "landmarks": [
+          "KMRL Muttom Depot",
+          "Metro Operations Control Centre",
+          "Muttom junction"
+        ],
+        "feeder_buses": [
+          "KSRTC Edapally via Kalamassery"
+        ],
+        "first_train": "06:09",
+        "last_train": "21:51",
+        "rail_interchange": null
+      },
+      {
+        "order": 6,
+        "name_en": "Kalamassery",
+        "name_ml": "കളമശ്ശേരി",
+        "code": "KLM",
+        "chainage_km": 6.768,
+        "coordinates": {
+          "latitude": 10.0584,
+          "longitude": 76.321926
+        },
+        "landmarks": [
+          "Kalamassery Railway Station",
+          "HMT Colony",
+          "CUSAT approach road"
+        ],
+        "feeder_buses": [
+          "KSRTC North Paravur",
+          "Indian Railways interchange shuttle"
+        ],
+        "first_train": "06:11",
+        "last_train": "21:49",
+        "rail_interchange": "Kalamassery Railway Station"
+      },
+      {
+        "order": 7,
+        "name_en": "CUSAT",
+        "name_ml": "കുസാറ്റ്",
+        "code": "CUS",
+        "chainage_km": 8.147,
+        "coordinates": {
+          "latitude": 10.046879,
+          "longitude": 76.318377
+        },
+        "landmarks": [
+          "Cochin University of Science and Technology",
+          "CUSAT Lakeside campus",
+          "Science Park road"
+        ],
+        "feeder_buses": [
+          "University internal shuttle",
+          "KSRTC Edapally"
+        ],
+        "first_train": "06:13",
+        "last_train": "21:47",
+        "rail_interchange": null
+      },
+      {
+        "order": 8,
+        "name_en": "Pathadipalam",
+        "name_ml": "പാതടിപ്പാലം",
+        "code": "PDL",
+        "chainage_km": 9.394,
+        "coordinates": {
+          "latitude": 10.035948,
+          "longitude": 76.314371
+        },
+        "landmarks": [
+          "Pathadipalam bridge",
+          "Edapally creek corridor",
+          "Residential flats belt"
+        ],
+        "feeder_buses": [
+          "Private buses to Edapally"
+        ],
+        "first_train": "06:15",
+        "last_train": "21:45",
+        "rail_interchange": null
+      },
+      {
+        "order": 9,
+        "name_en": "Edapally",
+        "name_ml": "എടപ്പള്ളി",
+        "code": "EDP",
+        "chainage_km": 10.787,
+        "coordinates": {
+          "latitude": 10.0266556,
+          "longitude": 76.3092583
+        },
+        "landmarks": [
+          "Edapally Junction",
+          "Lulu Mall (800 m walk)",
+          "NH66 interchange"
+        ],
+        "feeder_buses": [
+          "KSRTC City services",
+          "Lulu Mall shuttle",
+          "Auto to Lulu Mall"
+        ],
+        "first_train": "06:17",
+        "last_train": "21:43",
+        "rail_interchange": null
+      },
+      {
+        "order": 10,
+        "name_en": "Changampuzha Park",
+        "name_ml": "ചങ്ങമ്പുഴ പാർക്ക്",
+        "code": "CPK",
+        "chainage_km": 12.088,
+        "coordinates": {
+          "latitude": 10.0151778,
+          "longitude": 76.3022944
+        },
+        "landmarks": [
+          "Changampuzha Park",
+          "Palarivattom–Edapally road",
+          "Metro theme art gallery"
+        ],
+        "feeder_buses": [
+          "Private buses to Palarivattom"
+        ],
+        "first_train": "06:19",
+        "last_train": "21:41",
+        "rail_interchange": null
+      },
+      {
+        "order": 11,
+        "name_en": "Palarivattom",
+        "name_ml": "പാലാരിവട്ടം",
+        "code": "PLR",
+        "chainage_km": 13.096,
+        "coordinates": {
+          "latitude": 10.0089639,
+          "longitude": 76.30385
+        },
+        "landmarks": [
+          "Palarivattom Junction",
+          "Pipeline Road",
+          "Kakkanad IT corridor access"
+        ],
+        "feeder_buses": [
+          "Bus 101 to Infopark",
+          "Bus 102 to Smart City",
+          "KSRTC Kakkanad"
+        ],
+        "first_train": "06:21",
+        "last_train": "21:39",
+        "rail_interchange": null
+      },
+      {
+        "order": 12,
+        "name_en": "JLN Stadium",
+        "name_ml": "ജെ.എൽ.എൻ സ്റ്റേഡിയം",
+        "code": "JLN",
+        "chainage_km": 14.217,
+        "coordinates": {
+          "latitude": 10.0005167,
+          "longitude": 76.2990028
+        },
+        "landmarks": [
+          "Jawaharlal Nehru International Stadium",
+          "Kaloor–Kadavanthra road",
+          "KMRL Water Metro HQ (4th floor)"
+        ],
+        "feeder_buses": [
+          "KMRL Feeder to Infopark",
+          "KSRTC Kakkanad via Stadium"
+        ],
+        "first_train": "06:23",
+        "last_train": "21:37",
+        "rail_interchange": null
+      },
+      {
+        "order": 13,
+        "name_en": "Kaloor",
+        "name_ml": "കലൂർ",
+        "code": "KLR",
+        "chainage_km": 15.25,
+        "coordinates": {
+          "latitude": 9.9946167,
+          "longitude": 76.2916028
+        },
+        "landmarks": [
+          "JLN Stadium ground access",
+          "Lissie Hospital (1.5 km)",
+          "Kaloor bus stand"
+        ],
+        "feeder_buses": [
+          "Bus 1 to Medical Trust",
+          "Bus 1A to Kadavanthra",
+          "KSRTC long-distance"
+        ],
+        "first_train": "06:25",
+        "last_train": "21:35",
+        "rail_interchange": null
+      },
+      {
+        "order": 14,
+        "name_en": "Town Hall",
+        "name_ml": "ടൗൺ ഹാൾ",
+        "code": "TNH",
+        "chainage_km": 15.723,
+        "coordinates": {
+          "latitude": 9.991222,
+          "longitude": 76.288028
+        },
+        "landmarks": [
+          "Ernakulam Town Railway Station",
+          "Lissie Metro (former name)",
+          "Menaka shopping area"
+        ],
+        "feeder_buses": [
+          "KSRTC Marine Drive",
+          "Shuttle to Collectorate"
+        ],
+        "first_train": "06:27",
+        "last_train": "21:33",
+        "rail_interchange": "Ernakulam Town Railway Station"
+      },
+      {
+        "order": 15,
+        "name_en": "MG Road",
+        "name_ml": "എം.ജി റോഡ്",
+        "code": "MGR",
+        "chainage_km": 16.926,
+        "coordinates": {
+          "latitude": 9.9840667,
+          "longitude": 76.28205
+        },
+        "landmarks": [
+          "MG Road shopping district",
+          "Madhava Pharmacy (former name)",
+          "Marine Drive (1 km)"
+        ],
+        "feeder_buses": [
+          "Bus 13 to Fort Kochi",
+          "Bus 13A to Fort Kochi",
+          "KSRTC Boat Jetty shuttle"
+        ],
+        "first_train": "06:29",
+        "last_train": "21:31",
+        "rail_interchange": null
+      },
+      {
+        "order": 16,
+        "name_en": "Maharaja's College",
+        "name_ml": "മഹാരാജാസ് കോളേജ്",
+        "code": "MHC",
+        "chainage_km": 18.1,
+        "coordinates": {
+          "latitude": 9.9734278,
+          "longitude": 76.2849889
+        },
+        "landmarks": [
+          "Maharaja's College campus",
+          "Banerji Road",
+          "Padma Theatre area"
+        ],
+        "feeder_buses": [
+          "Private buses to Ernakulam South",
+          "KSRTC city loop"
+        ],
+        "first_train": "06:31",
+        "last_train": "21:29",
+        "rail_interchange": null
+      },
+      {
+        "order": 17,
+        "name_en": "Ernakulam South",
+        "name_ml": "എറണാകുളം സൗത്ത്",
+        "code": "ERS",
+        "chainage_km": 18.956,
+        "coordinates": {
+          "latitude": 9.9677556,
+          "longitude": 76.2912778
+        },
+        "landmarks": [
+          "Ernakulam Junction Railway Station (500 m)",
+          "South overbridge",
+          "KSRTC stand"
+        ],
+        "feeder_buses": [
+          "Indian Railways connection",
+          "KSRTC intercity",
+          "Auto to Junction"
+        ],
+        "first_train": "06:33",
+        "last_train": "21:27",
+        "rail_interchange": "Ernakulam Junction Railway Station"
+      },
+      {
+        "order": 18,
+        "name_en": "Kadavanthra",
+        "name_ml": "കടവന്ത്ര",
+        "code": "KDV",
+        "chainage_km": 20.141,
+        "coordinates": {
+          "latitude": 9.9665889,
+          "longitude": 76.2982583
+        },
+        "landmarks": [
+          "GCDA Metro (former name)",
+          "Kadavanthra junction",
+          "SA Road access"
+        ],
+        "feeder_buses": [
+          "Bus 1 from Kaloor",
+          "Private buses to Vyttila"
+        ],
+        "first_train": "06:35",
+        "last_train": "21:25",
+        "rail_interchange": null
+      },
+      {
+        "order": 19,
+        "name_en": "Elamkulam",
+        "name_ml": "ഏലംകുളം",
+        "code": "ELK",
+        "chainage_km": 21.295,
+        "coordinates": {
+          "latitude": 9.967075,
+          "longitude": 76.308364
+        },
+        "landmarks": [
+          "Elamkulam junction",
+          "Panampilly Nagar approach",
+          "Residential hub"
+        ],
+        "feeder_buses": [
+          "KSRTC to Tripunithura",
+          "Private buses to Vyttila"
+        ],
+        "first_train": "06:37",
+        "last_train": "21:23",
+        "rail_interchange": null
+      },
+      {
+        "order": 20,
+        "name_en": "Vyttila",
+        "name_ml": "വൈറ്റില",
+        "code": "VYT",
+        "chainage_km": 22.734,
+        "coordinates": {
+          "latitude": 9.967477,
+          "longitude": 76.320426
+        },
+        "landmarks": [
+          "Vyttila Mobility Hub (300 m)",
+          "Water Metro terminal (adjacent)",
+          "NH66 bypass"
+        ],
+        "feeder_buses": [
+          "KSRTC Maradu",
+          "KSRTC Tripunithura",
+          "KSRTC Kakkanad",
+          "Water Metro interchange"
+        ],
+        "first_train": "06:39",
+        "last_train": "21:21",
+        "rail_interchange": "Vyttila Mobility Hub"
+      },
+      {
+        "order": 21,
+        "name_en": "Thaikoodam",
+        "name_ml": "തായ്ക്കൂടം",
+        "code": "TKM",
+        "chainage_km": 23.758,
+        "coordinates": {
+          "latitude": 9.96008,
+          "longitude": 76.323708
+        },
+        "landmarks": [
+          "Thaikoodam bridge",
+          "Petta road junction",
+          "Residential south belt"
+        ],
+        "feeder_buses": [
+          "KSRTC Petta",
+          "Private Tripunithura buses"
+        ],
+        "first_train": "06:41",
+        "last_train": "21:19",
+        "rail_interchange": null
+      },
+      {
+        "order": 22,
+        "name_en": "Pettah",
+        "name_ml": "പേട്ട",
+        "code": "PTA",
+        "chainage_km": 24.941,
+        "coordinates": {
+          "latitude": 9.951161,
+          "longitude": 76.331004
+        },
+        "landmarks": [
+          "Petta junction",
+          "Tripunithura road",
+          "Metro viaduct straight section"
+        ],
+        "feeder_buses": [
+          "KSRTC Tripunithura",
+          "Private buses to Thripunithura"
+        ],
+        "first_train": "06:43",
+        "last_train": "21:17",
+        "rail_interchange": null
+      },
+      {
+        "order": 23,
+        "name_en": "Vadakkekotta",
+        "name_ml": "വടക്കേക്കോട്ട",
+        "code": "VDK",
+        "chainage_km": 25.8,
+        "coordinates": {
+          "latitude": 9.9528,
+          "longitude": 76.3395
+        },
+        "landmarks": [
+          "Vadakkekotta fort area",
+          "Largest KMRL station (Phase 1 extension)",
+          "Freedom struggle theme art"
+        ],
+        "feeder_buses": [
+          "KSRTC Tripunithura",
+          "Private SN Junction buses"
+        ],
+        "first_train": "06:45",
+        "last_train": "21:15",
+        "rail_interchange": null
+      },
+      {
+        "order": 24,
+        "name_en": "SN Junction",
+        "name_ml": "എസ്.എൻ ജംഗ്ഷൻ",
+        "code": "SNJ",
+        "chainage_km": 26.5,
+        "coordinates": {
+          "latitude": 9.9547,
+          "longitude": 76.3461
+        },
+        "landmarks": [
+          "SN Junction market",
+          "Ayurveda theme station art",
+          "Tripunithura suburbs access"
+        ],
+        "feeder_buses": [
+          "KSRTC Hill Palace route",
+          "Private Tripunithura buses"
+        ],
+        "first_train": "06:47",
+        "last_train": "21:13",
+        "rail_interchange": null
+      },
+      {
+        "order": 25,
+        "name_en": "Tripunithura",
+        "name_ml": "തൃപ്പൂണിത്തുറ",
+        "code": "TPR",
+        "chainage_km": 27.5,
+        "coordinates": {
+          "latitude": 9.9503,
+          "longitude": 76.3516
+        },
+        "landmarks": [
+          "Tripunithura Railway Station",
+          "Hill Palace (2.5 km)",
+          "Sree Poornathrayeesa Temple"
+        ],
+        "feeder_buses": [
+          "KSRTC Hill Palace",
+          "Indian Railways interchange",
+          "Auto to Hill Palace"
+        ],
+        "first_train": "06:49",
+        "last_train": "21:11",
+        "rail_interchange": "Tripunithura Railway Station"
+      }
+    ]
+  },
+  "water_metro": {
+    "operator": "Kochi Water Metro (KMRL)",
+    "operating_hours_default": {
+      "open": "06:00",
+      "close": "21:30",
+      "timezone": "Asia/Kolkata"
+    },
+    "routes": [
+      {
+        "route_id": "WM-01",
+        "name_en": "Vyttila to Kakkanad",
+        "name_ml": "വൈറ്റില മുതൽ കാക്കനാട് വരെ",
+        "terminals": [
+          {
+            "name_en": "Vyttila Hub",
+            "name_ml": "വൈറ്റില ഹബ്",
+            "coordinates": {
+              "latitude": 9.969,
+              "longitude": 76.321
+            },
+            "nearest_metro": {
+              "station_code": "VYT",
+              "station_name": "Vyttila",
+              "walking_distance_km": 0.3
+            }
+          },
+          {
+            "name_en": "South Chittoor",
+            "name_ml": "സൗത്ത് ചിറ്റൂർ",
+            "coordinates": {
+              "latitude": 10.03,
+              "longitude": 76.28
+            },
+            "nearest_metro": {
+              "station_code": "EDP",
+              "station_name": "Edapally",
+              "walking_distance_km": 5.2
+            }
+          },
+          {
+            "name_en": "Kakkanad",
+            "name_ml": "കാക്കനാട്",
+            "coordinates": {
+              "latitude": 10.015,
+              "longitude": 76.365
+            },
+            "nearest_metro": {
+              "station_code": "PLR",
+              "station_name": "Palarivattom",
+              "walking_distance_km": 7.5
+            }
+          }
+        ],
+        "first_boat": "06:30",
+        "last_boat": "21:00",
+        "frequency_minutes": {
+          "min": 15,
+          "max": 20
+        },
+        "fare_inr": {
+          "min": 20,
+          "max": 40
+        }
+      },
+      {
+        "route_id": "WM-02",
+        "name_en": "High Court to Vypin",
+        "name_ml": "ഹൈക്കോർട്ട് മുതൽ വൈപ്പിൻ വരെ",
+        "terminals": [
+          {
+            "name_en": "High Court",
+            "name_ml": "ഹൈക്കോർട്ട്",
+            "coordinates": {
+              "latitude": 9.984,
+              "longitude": 76.273
+            },
+            "nearest_metro": {
+              "station_code": "MGR",
+              "station_name": "MG Road",
+              "walking_distance_km": 1.3
+            }
+          },
+          {
+            "name_en": "Fort Kochi",
+            "name_ml": "ഫോർട്ട് കൊച്ചി",
+            "coordinates": {
+              "latitude": 9.966,
+              "longitude": 76.242
+            },
+            "nearest_metro": {
+              "station_code": "MGR",
+              "station_name": "MG Road",
+              "walking_distance_km": 8.2
+            }
+          },
+          {
+            "name_en": "Vypin",
+            "name_ml": "വൈപ്പിൻ",
+            "coordinates": {
+              "latitude": 9.974102,
+              "longitude": 76.244411
+            },
+            "nearest_metro": {
+              "station_code": "MGR",
+              "station_name": "MG Road",
+              "walking_distance_km": 9.0
+            }
+          }
+        ],
+        "first_boat": "06:00",
+        "last_boat": "21:30",
+        "frequency_minutes": {
+          "min": 20,
+          "max": 20
+        },
+        "fare_inr": {
+          "min": 20,
+          "max": 30
+        }
+      },
+      {
+        "route_id": "WM-03",
+        "name_en": "Vyttila to Collectorate via Ernakulam Boat Jetty",
+        "name_ml": "എറണാകുളം ബോート് ജെറ്റി വഴി കലക്ടറേറ്റിലേക്ക് വൈറ്റിലയിൽ നിന്ന്",
+        "terminals": [
+          {
+            "name_en": "Vyttila",
+            "name_ml": "വൈറ്റില",
+            "coordinates": {
+              "latitude": 9.969,
+              "longitude": 76.321
+            },
+            "nearest_metro": {
+              "station_code": "VYT",
+              "station_name": "Vyttila",
+              "walking_distance_km": 0.3
+            }
+          },
+          {
+            "name_en": "Ernakulam Boat Jetty",
+            "name_ml": "എറണാകുളം ബോട്ട് ജെറ്റി",
+            "coordinates": {
+              "latitude": 9.97,
+              "longitude": 76.278
+            },
+            "nearest_metro": {
+              "station_code": "TNH",
+              "station_name": "Town Hall",
+              "walking_distance_km": 0.9
+            }
+          },
+          {
+            "name_en": "Collectorate",
+            "name_ml": "കലക്ടറേറ്റ്",
+            "coordinates": {
+              "latitude": 9.993,
+              "longitude": 76.287
+            },
+            "nearest_metro": {
+              "station_code": "TNH",
+              "station_name": "Town Hall",
+              "walking_distance_km": 0.8
+            }
+          }
+        ],
+        "first_boat": "06:15",
+        "last_boat": "21:00",
+        "frequency_minutes": {
+          "min": 20,
+          "max": 30
+        },
+        "fare_inr": {
+          "min": 20,
+          "max": 35
+        },
+        "notes": "KMRL feeder/water connection; may require transfer at Ernakulam Boat Jetty."
+      }
+    ]
+  },
+  "feeder_buses": {
+    "description": "Key KSRTC and city bus feeder connections linking Metro stations to major destinations",
+    "routes": [
+      {
+        "route_id": "FB-ALV-01",
+        "route_number": "KSRTC",
+        "from_metro": {
+          "code": "ALV",
+          "name": "Aluva Metro"
+        },
+        "destinations": [
+          "Angamaly",
+          "Perumbavoor"
+        ],
+        "operator": "KSRTC",
+        "frequency_minutes": 15,
+        "first_service": "05:30",
+        "last_service": "22:00",
+        "stops": [
+          "Aluva Metro",
+          "Aluva KSRTC Stand",
+          "Angamaly",
+          "Perumbavoor"
+        ]
+      },
+      {
+        "route_id": "FB-EDP-01",
+        "route_number": "Walk/Auto",
+        "from_metro": {
+          "code": "EDP",
+          "name": "Edapally Metro"
+        },
+        "destinations": [
+          "Lulu Mall"
+        ],
+        "operator": "Walk or auto-rickshaw",
+        "frequency_minutes": null,
+        "first_service": "06:00",
+        "last_service": "22:00",
+        "stops": [
+          "Edapally Metro",
+          "Lulu Mall"
+        ],
+        "distance_km": 0.8
+      },
+      {
+        "route_id": "FB-PLR-01",
+        "route_number": "101",
+        "from_metro": {
+          "code": "PLR",
+          "name": "Palarivattom Metro"
+        },
+        "destinations": [
+          "Kakkanad Infopark",
+          "Smart City"
+        ],
+        "operator": "KSRTC / Private",
+        "frequency_minutes": 10,
+        "first_service": "06:00",
+        "last_service": "21:30",
+        "stops": [
+          "Palarivattom Metro",
+          "Pipeline Road",
+          "Infopark",
+          "Kakkanad"
+        ]
+      },
+      {
+        "route_id": "FB-PLR-02",
+        "route_number": "102",
+        "from_metro": {
+          "code": "PLR",
+          "name": "Palarivattom Metro"
+        },
+        "destinations": [
+          "Kakkanad IT Parks"
+        ],
+        "operator": "KSRTC / Private",
+        "frequency_minutes": 12,
+        "first_service": "06:15",
+        "last_service": "21:00",
+        "stops": [
+          "Palarivattom Metro",
+          "Kakkanad Junction",
+          "Infopark Phase 2"
+        ]
+      },
+      {
+        "route_id": "FB-VYT-01",
+        "route_number": "KSRTC Multiple",
+        "from_metro": {
+          "code": "VYT",
+          "name": "Vyttila Metro"
+        },
+        "destinations": [
+          "Maradu",
+          "Tripunithura",
+          "Kakkanad"
+        ],
+        "operator": "KSRTC",
+        "frequency_minutes": 10,
+        "first_service": "05:45",
+        "last_service": "22:00",
+        "stops": [
+          "Vyttila Mobility Hub",
+          "Maradu",
+          "Tripunithura",
+          "Kakkanad Civil Station"
+        ]
+      },
+      {
+        "route_id": "FB-MGR-01",
+        "route_number": "13",
+        "from_metro": {
+          "code": "MGR",
+          "name": "MG Road Metro"
+        },
+        "destinations": [
+          "Fort Kochi"
+        ],
+        "operator": "KSRTC",
+        "frequency_minutes": 15,
+        "first_service": "06:00",
+        "last_service": "21:00",
+        "stops": [
+          "MG Road",
+          "Menaka",
+          "Boat Jetty",
+          "Fort Kochi"
+        ]
+      },
+      {
+        "route_id": "FB-MGR-02",
+        "route_number": "13A",
+        "from_metro": {
+          "code": "MGR",
+          "name": "MG Road Metro"
+        },
+        "destinations": [
+          "Fort Kochi"
+        ],
+        "operator": "KSRTC",
+        "frequency_minutes": 20,
+        "first_service": "06:30",
+        "last_service": "20:30",
+        "stops": [
+          "MG Road",
+          "Marine Drive",
+          "Fort Kochi Beach"
+        ]
+      },
+      {
+        "route_id": "FB-KLR-01",
+        "route_number": "1",
+        "from_metro": {
+          "code": "KLR",
+          "name": "Kaloor Metro"
+        },
+        "destinations": [
+          "Medical Trust Hospital",
+          "Kadavanthra"
+        ],
+        "operator": "Private / KSRTC",
+        "frequency_minutes": 8,
+        "first_service": "06:00",
+        "last_service": "21:30",
+        "stops": [
+          "Kaloor",
+          "Palarivattom Road",
+          "Medical Trust",
+          "Kadavanthra"
+        ]
+      },
+      {
+        "route_id": "FB-KLR-02",
+        "route_number": "1A",
+        "from_metro": {
+          "code": "KLR",
+          "name": "Kaloor Metro"
+        },
+        "destinations": [
+          "Medical Trust",
+          "Kadavanthra"
+        ],
+        "operator": "Private / KSRTC",
+        "frequency_minutes": 12,
+        "first_service": "06:15",
+        "last_service": "21:00",
+        "stops": [
+          "Kaloor",
+          "SA Road",
+          "Kadavanthra Junction"
+        ]
+      }
+    ]
+  },
+  "auto_rickshaw": {
+    "source": "Kerala Motor Vehicles Department — GO(P) No. 42/2023/Trans",
+    "effective_from": "2024",
+    "currency": "INR",
+    "rates": {
+      "minimum_fare_inr": 30,
+      "minimum_distance_km": 1.5,
+      "per_km_after_minimum_inr": 18,
+      "waiting_charge_inr_per_5_min": 5,
+      "night_surcharge": {
+        "applies": true,
+        "hours": "22:00-05:00",
+        "multiplier": 1.5,
+        "description": "50% extra on total meter fare"
+      },
+      "luggage_charge_inr_per_piece_above_20kg": 5
+    },
+    "fare_formula": "If distance <= 1.5 km: fare = 30. Else: fare = 30 + (distance_km - 1.5) * 18. Apply 1.5x multiplier for night hours. Add luggage charges separately."
+  },
+  "distance_matrix": {
+    "description": "Common origin-destination distances in km for multimodal routing and auto fare estimation",
+    "unit": "km",
+    "pairs": [
+      {
+        "id": "DM-001",
+        "origin": {
+          "type": "metro",
+          "code": "EDP",
+          "name": "Edapally Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Lulu Mall"
+        },
+        "distance_km": 0.8,
+        "recommended_mode": "walk_or_auto"
+      },
+      {
+        "id": "DM-002",
+        "origin": {
+          "type": "metro",
+          "code": "ALV",
+          "name": "Aluva Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Aluva Railway Station"
+        },
+        "distance_km": 1.2,
+        "recommended_mode": "walk_or_auto"
+      },
+      {
+        "id": "DM-003",
+        "origin": {
+          "type": "metro",
+          "code": "VYT",
+          "name": "Vyttila Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Vyttila Mobility Hub"
+        },
+        "distance_km": 0.3,
+        "recommended_mode": "walk"
+      },
+      {
+        "id": "DM-004",
+        "origin": {
+          "type": "metro",
+          "code": "PLR",
+          "name": "Palarivattom Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Kakkanad Infopark"
+        },
+        "distance_km": 7.5,
+        "recommended_mode": "bus_101_or_water_metro"
+      },
+      {
+        "id": "DM-005",
+        "origin": {
+          "type": "metro",
+          "code": "MGR",
+          "name": "MG Road Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Fort Kochi"
+        },
+        "distance_km": 8.2,
+        "recommended_mode": "bus_13_or_water_metro"
+      },
+      {
+        "id": "DM-006",
+        "origin": {
+          "type": "metro",
+          "code": "ERS",
+          "name": "Ernakulam South Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Ernakulam Junction Railway Station"
+        },
+        "distance_km": 0.5,
+        "recommended_mode": "walk"
+      },
+      {
+        "id": "DM-007",
+        "origin": {
+          "type": "metro",
+          "code": "KLR",
+          "name": "Kaloor Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Lissie Hospital"
+        },
+        "distance_km": 1.5,
+        "recommended_mode": "auto_or_bus"
+      },
+      {
+        "id": "DM-008",
+        "origin": {
+          "type": "metro",
+          "code": "EDP",
+          "name": "Edapally Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Medical College"
+        },
+        "distance_km": 3.2,
+        "recommended_mode": "auto_or_bus"
+      },
+      {
+        "id": "DM-009",
+        "origin": {
+          "type": "metro",
+          "code": "VYT",
+          "name": "Vyttila Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Kakkanad Civil Station"
+        },
+        "distance_km": 8.0,
+        "recommended_mode": "bus_or_water_metro"
+      },
+      {
+        "id": "DM-010",
+        "origin": {
+          "type": "metro",
+          "code": "TPR",
+          "name": "Tripunithura Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Hill Palace"
+        },
+        "distance_km": 2.5,
+        "recommended_mode": "auto_or_bus"
+      },
+      {
+        "id": "DM-011",
+        "origin": {
+          "type": "metro",
+          "code": "ALV",
+          "name": "Aluva Metro"
+        },
+        "destination": {
+          "type": "poi",
+          "name": "Cochin International Airport"
+        },
+        "distance_km": 14.0,
+        "recommended_mode": "ksrtc_or_taxi"
+      }
+    ]
+  }
+}
