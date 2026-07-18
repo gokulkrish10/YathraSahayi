@@ -15,6 +15,18 @@
     "ml": "തീർച്ചയായും. നിങ്ങൾ ഇപ്പോൾ എവിടെയാണ്?",
     "en": "Of course. Where are you right now?"
   },
+  "ask_origin_for_destination": {
+    "ml": "തീർച്ചയായും, {destination} ലേക്ക് പോകാൻ സഹായിക്കാം. നിങ്ങൾ ഇപ്പോൾ എവിടെ നിന്നാണ് തുടങ്ങുന്നത്?",
+    "en": "Of course, I can help you reach {destination}. Where are you starting from right now?"
+  },
+  "ask_origin_for_destination_nearest": {
+    "ml": "{destination}-ന്റെ അടുത്ത മെട്രോ സ്റ്റേഷൻ {station} ആണ്. നിങ്ങൾ ഇപ്പോൾ എവിടെ നിന്നാണ് തുടങ്ങുന്നത്?",
+    "en": "{destination} is closest to {station} Metro station. Where are you starting from right now?"
+  },
+  "ask_destination_from_origin": {
+    "ml": "തീർച്ചയായും. {origin} നിന്ന് എവിടേക്കാണ് പോകേണ്ടത്?",
+    "en": "Of course. From {origin}, where would you like to go?"
+  },
   "ask_origin_and_destination_for_fare": {
     "ml": "ഓട്ടോ ചാർജ് കണക്കാക്കാൻ പുറപ്പെടുന്ന സ്ഥലംയും ലക്ഷ്യസ്ഥാനവും ദയവായി പറയാമോ?",
     "en": "Please tell me both the starting point and destination, and I will estimate the auto fare."

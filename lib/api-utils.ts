@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { ApiResponse } from "@/types";
 import { bedrockConfigured, getBedrockModelId } from "@/lib/bedrock-gemini";
+import { getRouteProviderPreference, liveRoutingConfigured } from "@/lib/route-planner";
 
 export function jsonOk<T>(data: T, init?: ResponseInit) {
   const body: ApiResponse<T> = { ok: true, data };
@@ -17,6 +18,8 @@ export function getEnvStatus() {
     sarvam: Boolean(process.env.SARVAM_API_KEY),
     bedrock: bedrockConfigured(),
     bedrockModelId: getBedrockModelId(),
+    googleMaps: liveRoutingConfigured(),
+    routeProvider: getRouteProviderPreference(),
     twilio: Boolean(
       process.env.TWILIO_ACCOUNT_SID &&
         process.env.TWILIO_AUTH_TOKEN &&

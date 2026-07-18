@@ -14,12 +14,31 @@ const aliasMap = stationAliases as StationAliasesMap;
 const templates = responseTemplates as ResponseTemplatesMap;
 
 const POI_NEAREST_METRO: Record<string, string> = {
+  "Ernakulam Junction": "ERS",
   Kakkanad: "PLR",
   "Fort Kochi": "MGR",
   "Lulu Mall": "EDP",
 };
 
 let stationCache: TransitStation[] | null = null;
+
+const MALAYALAM_PLACE_SUFFIXES = [
+  "യിലേയ്ക്ക്",
+  "യിലേക്ക്",
+  "ഇലേക്ക്",
+  "ിലേക്ക്",
+  "ലേക്ക്",
+  "യിൽ",
+  "യില്",
+  "ഇൽ",
+  "ഇല്",
+  "ിൽ",
+  "ില്",
+  "വരെ",
+  "മുതൽ",
+  "നിന്നും",
+  "നിന്ന്",
+];
 
 function mapStation(raw: KochiTransitData["metro"]["stations"][number]): TransitStation {
   return {
@@ -57,19 +76,93 @@ export function resolveCanonicalName(query: string): string | undefined {
   const trimmed = query.trim();
   if (!trimmed) return undefined;
 
-  const lower = trimmed.toLowerCase();
-  if (aliasMap[lower]) return aliasMap[lower];
-  if (aliasMap[trimmed]) return aliasMap[trimmed];
+  const candidates = expandPlaceCandidates(trimmed);
 
-  const station = getStations().find(
-    (s) =>
-      s.name_en.toLowerCase() === lower ||
-      s.name_en.toLowerCase().includes(lower) ||
-      s.name_ml === trimmed ||
-      s.code.toLowerCase() === lower
-  );
+  for (const candidate of candidates) {
+    const lower = candidate.toLowerCase();
+    if (aliasMap[lower]) return aliasMap[lower];
+    if (aliasMap[candidate]) return aliasMap[candidate];
+  }
 
-  return station?.name_en;
+  const withoutKochiSuffix = trimmed.replace(/,?\s+kochi$/i, "").trim();
+  if (withoutKochiSuffix && withoutKochiSuffix !== trimmed) {
+    const canonicalWithoutSuffix = resolveCanonicalName(withoutKochiSuffix);
+    if (canonicalWithoutSuffix) return canonicalWithoutSuffix;
+  }
+
+  for (const candidate of candidates) {
+    const lower = candidate.toLowerCase();
+    const station = getStations().find(
+      (s) =>
+        s.name_en.toLowerCase() === lower ||
+        s.name_en.toLowerCase().includes(lower) ||
+        s.name_ml === candidate ||
+        s.code.toLowerCase() === lower
+    );
+    if (station) return station.name_en;
+  }
+
+  return undefined;
+}
+
+function expandPlaceCandidates(query: string): string[] {
+  const candidates = new Set<string>();
+  const enqueue = (value: string) => {
+    const trimmed = value.trim().replace(/\s+/g, " ");
+    if (!trimmed) return;
+    candidates.add(trimmed);
+
+    const withoutKochiSuffix = trimmed.replace(/,?\s+kochi$/i, "").trim();
+    if (withoutKochiSuffix && withoutKochiSuffix !== trimmed) {
+      candidates.add(withoutKochiSuffix);
+    }
+
+    const withoutMalayalamCopula = trimmed
+      .replace(/\s*(?:നിന്നാണ്|നിന്നാണു|ആണ്|ആണു)$/u, "")
+      .trim();
+    if (withoutMalayalamCopula && withoutMalayalamCopula !== trimmed) {
+      candidates.add(withoutMalayalamCopula);
+    }
+  };
+
+  enqueue(query);
+
+  for (const candidate of Array.from(candidates)) {
+    for (const suffix of MALAYALAM_PLACE_SUFFIXES) {
+      if (!candidate.endsWith(suffix)) continue;
+      const stripped = candidate.slice(0, -suffix.length).trim();
+      if (!stripped) continue;
+      enqueue(stripped);
+      for (const expanded of expandMalayalamTerminal(stripped)) {
+        enqueue(expanded);
+      }
+    }
+  }
+
+  return Array.from(candidates);
+}
+
+function expandMalayalamTerminal(place: string): string[] {
+  const expansions: string[] = [];
+  const last = place.at(-1);
+  if (!last) return expansions;
+
+  if (["ഡ", "ട", "ദ", "ക", "ഗ", "ച", "ജ", "പ", "ബ"].includes(last)) {
+    expansions.push(`${place}്`);
+  }
+
+  const chilluMap: Record<string, string> = {
+    ര: "ർ",
+    റ: "ർ",
+    ള: "ൾ",
+    ല: "ൽ",
+    ന: "ൻ",
+    ണ: "ൺ",
+  };
+  const chillu = chilluMap[last];
+  if (chillu) expansions.push(`${place.slice(0, -1)}${chillu}`);
+
+  return expansions;
 }
 
 export function resolveStation(query: string): TransitStation | undefined {

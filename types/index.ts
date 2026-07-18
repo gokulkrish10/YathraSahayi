@@ -4,6 +4,7 @@ export type SarvamLanguageCode = SarvamLocale | "unknown";
 export type TransportMode = "metro" | "water_metro" | "bus" | "auto" | "walk";
 export type IntentType = "route" | "fare" | "schedule" | "last_mile" | "general";
 export type TransportModePreference = TransportMode | "any";
+export type RouteProvider = "local" | "google" | "demo";
 
 export interface FeederBus {
   name: string;
@@ -33,6 +34,12 @@ export interface RouteSegment {
   details: string;
   details_ml: string;
   distance_km?: number;
+  lineName?: string;
+  departureTime?: string;
+  arrivalTime?: string;
+  polyline?: string;
+  localizedDistance?: string;
+  localizedDuration?: string;
 }
 
 export interface TransitRoute {
@@ -43,8 +50,24 @@ export interface TransitRoute {
   summary_en?: string;
   summary_ml?: string;
   transferWaitMinutes?: number;
-  routeType?: "direct_metro" | "metro_last_mile" | "water_metro" | "auto_only" | "mixed";
+  routeType?:
+    | "direct_metro"
+    | "metro_last_mile"
+    | "water_metro"
+    | "auto_only"
+    | "mixed"
+    | "google_transit"
+    | "demo_metro"
+    | "feeder_bus";
   notes?: string[];
+  provider?: RouteProvider;
+  source?: string;
+  totalDistanceMeters?: number;
+  localizedTotalDistance?: string;
+  localizedTotalDuration?: string;
+  localizedFare?: string;
+  polyline?: string;
+  mapUrl?: string;
 }
 
 export interface AutoFareResult {
