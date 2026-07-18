@@ -24,6 +24,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  min-height: 100dvh;
   font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background:
     radial-gradient(circle at 20% 18%, rgba(0, 166, 166, 0.32), transparent 30%),
@@ -34,10 +35,13 @@ body {
 
 body {
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 button {
   font: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button:focus-visible {
@@ -48,11 +52,16 @@ button:focus-visible {
 main {
   width: min(1180px, 100%);
   margin: 0 auto;
-  padding: 28px 18px 34px;
+  min-height: 100dvh;
+  padding:
+    calc(28px + env(safe-area-inset-top))
+    max(18px, env(safe-area-inset-right))
+    calc(34px + env(safe-area-inset-bottom))
+    max(18px, env(safe-area-inset-left));
 }
 
 .voice-agent {
-  min-height: calc(100vh - 62px);
+  min-height: calc(100dvh - 62px);
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -172,6 +181,7 @@ h1 {
     0 0 78px rgba(0, 229, 204, 0.48);
   cursor: pointer;
   isolation: isolate;
+  touch-action: manipulation;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -483,7 +493,7 @@ h1 {
 }
 
 .conversation {
-  height: min(48vh, 430px);
+  height: min(48dvh, 430px);
   min-height: 300px;
   overflow-y: auto;
   display: flex;
@@ -491,6 +501,8 @@ h1 {
   gap: 12px;
   padding: 4px 4px 10px;
   scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .conversation-empty,
@@ -717,7 +729,11 @@ h1 {
 
 @media (max-width: 880px) {
   main {
-    padding: 18px 14px 28px;
+    padding:
+      calc(18px + env(safe-area-inset-top))
+      max(14px, env(safe-area-inset-right))
+      calc(28px + env(safe-area-inset-bottom))
+      max(14px, env(safe-area-inset-left));
   }
 
   .hero-shell {
@@ -731,6 +747,221 @@ h1 {
 
   .conversation {
     height: 390px;
+  }
+}
+
+@media (max-width: 700px) {
+  main {
+    padding:
+      calc(14px + env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      calc(22px + env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left));
+  }
+
+  .voice-agent {
+    min-height: calc(100dvh - 36px);
+    gap: 14px;
+  }
+
+  .hero-shell {
+    gap: 15px;
+    padding: 4px 0 0;
+  }
+
+  .voice-header {
+    width: 100%;
+  }
+
+  .eyebrow,
+  .section-kicker,
+  .status-eyebrow {
+    min-height: 24px;
+    padding: 0 10px;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+  }
+
+  h1 {
+    margin-bottom: 8px;
+    font-size: clamp(2rem, 10vw, 2.85rem);
+    line-height: 1.08;
+  }
+
+  .subtitle {
+    margin-bottom: 6px;
+    font-size: 1rem;
+  }
+
+  .tagline {
+    max-width: 34ch;
+    margin-inline: auto;
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .language-signal {
+    width: min(100%, 390px);
+    min-height: 42px;
+    gap: 7px;
+    padding: 8px 10px;
+    text-align: center;
+    font-size: 0.78rem;
+  }
+
+  .language-signal-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .orb-stage {
+    gap: 13px;
+    margin-top: 0;
+  }
+
+  .voice-orb {
+    width: clamp(168px, 56vw, 226px);
+    min-width: 0;
+  }
+
+  .orb-ring {
+    inset: -10px;
+  }
+
+  .orb-ring-two {
+    inset: -20px;
+  }
+
+  .orb-core {
+    inset: 14px;
+    gap: 10px;
+  }
+
+  .orb-mic {
+    width: 31px;
+    height: 45px;
+    margin-bottom: 16px;
+    border-width: 3px;
+  }
+
+  .orb-mic::before {
+    bottom: -16px;
+    width: 3px;
+    height: 15px;
+  }
+
+  .orb-mic::after {
+    bottom: -20px;
+    width: 28px;
+    height: 3px;
+  }
+
+  .orb-text {
+    width: min(124px, 72%);
+    margin-top: 4px;
+    font-size: 0.82rem;
+  }
+
+  .status-card {
+    width: min(100%, 390px);
+    padding: 12px 13px;
+  }
+
+  .status-card h2 {
+    margin: 9px 0 5px;
+    font-size: 1.08rem;
+  }
+
+  .status-card p {
+    font-size: 0.86rem;
+  }
+
+  .call-state {
+    min-height: 30px;
+    margin-top: 10px;
+    font-size: 0.76rem;
+  }
+
+  .waveform {
+    height: 30px;
+    margin-top: 11px;
+  }
+
+  .waveform span {
+    width: 6px;
+  }
+
+  .demo-grid,
+  .demo-grid-focused {
+    grid-template-columns: 1fr;
+  }
+
+  .conversation-card {
+    min-height: 0;
+  }
+
+  .conversation-header {
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .conversation-header h2,
+  .quick-card h2 {
+    margin-top: 8px;
+    font-size: 1rem;
+  }
+
+  .status-pill {
+    padding: 6px 9px;
+    font-size: 0.68rem;
+  }
+
+  .voice-error,
+  .voice-notice {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .conversation {
+    height: min(39dvh, 340px);
+    min-height: 220px;
+    gap: 10px;
+    padding: 2px 1px 8px;
+  }
+
+  .conversation-empty,
+  .listening-card {
+    padding: 12px;
+  }
+
+  .conversation-empty p,
+  .listening-card p {
+    font-size: 0.94rem;
+  }
+
+  .bubble {
+    max-width: 96%;
+    padding: 11px 12px;
+  }
+
+  .bubble-label {
+    margin-bottom: 5px;
+    font-size: 0.67rem;
+  }
+
+  .bubble p {
+    font-size: 0.92rem;
+    line-height: 1.48;
+  }
+
+  .bubble-route-tools a {
+    width: 100%;
+    min-height: 42px;
+    justify-content: center;
+  }
+
+  .quick-action {
+    min-height: 68px;
   }
 }
 
@@ -761,12 +992,59 @@ h1 {
   }
 
   .conversation {
-    height: 360px;
+    height: min(37dvh, 360px);
     min-height: 260px;
   }
 
   .bubble {
     max-width: 94%;
+  }
+}
+
+@media (max-width: 420px) {
+  .language-signal {
+    justify-content: center;
+  }
+
+  .language-signal strong {
+    flex-basis: 100%;
+  }
+
+  .status-card,
+  .conversation-card,
+  .quick-card {
+    padding: 12px;
+  }
+
+  .conversation-header {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 380px), (max-height: 720px) and (max-width: 700px) {
+  .hero-shell {
+    gap: 12px;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+  }
+
+  .voice-orb {
+    width: clamp(154px, 50vw, 196px);
+  }
+
+  .status-card h2 {
+    font-size: 1rem;
+  }
+
+  .status-card p {
+    font-size: 0.8rem;
+  }
+
+  .conversation {
+    height: min(34dvh, 300px);
+    min-height: 190px;
   }
 }
 

@@ -589,7 +589,7 @@ export default function VoiceAgent() {
       <div className="hero-shell">
         <header className="voice-header">
           <p className="eyebrow">Kochi Metro helpline AI demo</p>
-          <h1>യാത്ര സഹായി / Yathra Sahayi</h1>
+          <h1>യാത്ര സഹായി Yathra Sahayi</h1>
           <p className="subtitle">Kochi Metro voice transit assistant</p>
           <p className="tagline">
             Speaks back in the same language it hears, with Malayalam-English switching across the call.
